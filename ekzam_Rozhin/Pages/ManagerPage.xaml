@@ -1,0 +1,59 @@
+﻿<Page x:Class="ekzam_Rozhin.Pages.ManagerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ekzam_Rozhin.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManagerPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid Background="#FFD7E7F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#4db2d8" Grid.Row="0">
+            <Image Source="/Resources/logo-full.png" HorizontalAlignment="Left" Margin="20,5,0,5"/>
+            <TextBlock Text="Управление задачами" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80,0,0,0"/>
+        </Grid>
+        <DataGrid x:Name="DGridExecutor" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Заголовок задачи" Binding="{Binding Title}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Описание задачи" Binding="{Binding Description}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Срок исполнения" Binding="{Binding CreateDateTime}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата выполнения" Binding="{Binding CompletedDateTime}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Сложность задачи" Binding="{Binding Difficulty}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Время на выполнение задачи" Binding="{Binding Time}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Исполнитель задачи" Binding="{Binding Title}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Статус задачи" Binding="{Binding Status}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Характер задачи" Binding="{Binding WorkType}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"
+                                    Background="#FFF02A53" Width="150" Height="40" 
+                                    FontSize="16" Foreground="White"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Background="#4db2d8" Grid.Row="2">
+            <Button Content="Выход" Width="150" Height="40" 
+                    Background="#FFF02A53" Foreground="White"
+                    FontSize="16" HorizontalAlignment="Right" Margin="0,0,20,0"
+                    Name="BtnBack" Click="BtnBack_Click"></Button>
+
+            <Button Content="Добавить" Width="150" Height="40" 
+                    Background="#FFF02A53" Foreground="White"
+                    FontSize="16" HorizontalAlignment="Left" Margin="10,0,0,0"
+                    Name="BtnAdd" Click="BtnAdd_Click"></Button>
+            <Button Content="Удалить" Width="150" Height="40" 
+                    Background="#FFF02A53" Foreground="White"
+                    FontSize="16" HorizontalAlignment="Left" Margin="170,0,0,0"
+                    Name="BtnDelete" Click="BtnDelete_Click"></Button>
+        </Grid>
+    </Grid>
+</Page>
